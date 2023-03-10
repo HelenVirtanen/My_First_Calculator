@@ -3,6 +3,7 @@ from random import choice
 
 print("Добро пожаловать! Это калькулятор. Давайте что-нибудь посчитаем!:)")
 
+
 def calc():
     num_1 = input("Введите первое число: ")
     while not num_1.isdigit():
@@ -47,8 +48,9 @@ def calc():
 
     again = input(choice(["Хотите попробовать еще раз?:) ", "Посчитаем еще?:) ", "Давайте еще посчитаем?:) "]))
     if again.lower() in "давайхорошокугу":
-       calc()
+        calc()
     else:
         print("Пока-пока! До новых расчетов!")
 
+        
 calc()
