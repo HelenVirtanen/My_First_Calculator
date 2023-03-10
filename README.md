@@ -1,1 +1,1 @@
-# gitTutorial
+# calculator by Tangorra :)
