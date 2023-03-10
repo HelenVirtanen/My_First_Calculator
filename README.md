@@ -1,1 +1,1 @@
-# calculator by Tangorra :)
+# Try my calculator :)
