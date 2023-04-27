@@ -3,6 +3,12 @@ from random import choice
 
 print("Добро пожаловать! Это калькулятор. Давайте что-нибудь посчитаем!:)")
 
+def try_again():
+    again = input(choice(["Хотите попробовать еще раз?:) ", "Посчитаем еще?:) ", "Давайте еще посчитаем?:) ", "Еще? "]))
+    if again.lower() in "давайхорошокугу":
+        calc()
+    else:
+        print("Пока-пока! До новых расчетов!")
 
 def calc():
     num_1 = input("Введите первое число: ")
@@ -26,35 +32,31 @@ def calc():
         print("Это не похоже на число")
         num_2 = input("Введите второе число: ")
 
+    if int(num_2) == 0 and oper == "/":
+        print("На ноль делить нельзя!")
+        try_again()
+
     print("Отлично! Сейчас посчитаем!:)")
     time.sleep(1)
 
     num_1, num_2 = int(num_1), int(num_2)
     if oper == "+":
-        print("Сумма равна", num_1 + num_2)
+        print("Сумма равна:", num_1 + num_2)
     elif oper == "-":
-        print("Разность равна", num_1 - num_2)
+        print("Разность равна:", num_1 - num_2)
     elif oper == "*":
-        print("Умножение равно", num_1 * num_2)
+        print("Умножение равно:", num_1 * num_2)
     elif oper == "/" or oper == "//":
-        if num_2 == 0:
-            raise ArithmeticError("На ноль делить нельзя!")
-        else:
-            print("Деление равно", num_1 / num_2)
-            print("Деление нацело равно", num_1 // num_2)
-            print("Деление с остатком равно", num_1 % num_2)
+        print("Деление равно:", num_1 / num_2)
+        print("Деление нацело равно:", num_1 // num_2)
+        print("Деление с остатком равно:", num_1 % num_2)
 
         if num_1 % num_2 == 0:
             print(f"Получается {num_1} кратно {num_2}. Здорово!")
 
     elif oper.lower() == "да":
-        print(f"Число {num_1} в степени {num_2} равно {num_1 ** num_2}")
+        print(f"Число {num_1} в степени {num_2} равно: {num_1 ** num_2}")
 
-    again = input(choice(["Хотите попробовать еще раз?:) ", "Посчитаем еще?:) ", "Давайте еще посчитаем?:) ", "Еще? "]))
-    if again.lower() in "давайхорошокугу":
-        calc()
-    else:
-        print("Пока-пока! До новых расчетов!")
-
+    try_again()
 
 calc()
