@@ -38,6 +38,8 @@ def calc():
     elif oper == "*":
         print("Умножение равно", num_1 * num_2)
     elif oper == "/" or oper == "//":
+        if num2 == 0:
+            print("На ноль делить нельзя!")
         print("Деление равно", num_1 / num_2)
         print("Деление нацело равно", num_1 // num_2)
         print("Деление с остатком равно", num_1 % num_2)
